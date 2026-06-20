@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Father's Day Card</title>
+  <style>
+    body {
+      margin:0; display:flex; align-items:center; justify-content:center;
+      height:100vh; background:#ccc; /* gray background for sides */
+      perspective: 1200px; /* enables 3D flip */
+    }
+    .card {
+      width:400px; height:500px;
+      position:relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+      cursor:pointer;
+    }
+    .card.open {
+      transform: rotateY(180deg); /* flip open on click */
+    }
+    .side {
+      position:absolute; inset:0;
+      backface-visibility:hidden;
+      border-radius:12px; box-shadow:0 0 15px rgba(0,0,0,.4);
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; padding:20px;
+    }
+    /* Front cover */
+    .front {
+      background:linear-gradient(to bottom, #ddd, #aaa); /* gradient sides */
+      display:flex; justify-content:center; align-items:center;
+      position:relative;
+    }
+    .front img {
+      height:100%; width:auto;
+      border-radius:12px;
+      border:3px solid gold; /* gold border */
+      box-shadow:0 0 20px rgba(0,0,0,0.6); /* shadow/glow */
+    }
+    .front h2 {
+      position:absolute; bottom:20px; right:20px;
+      font-family:"Brush Script MT", cursive;
+      font-size:24px; color:gold;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.6);
+    }
+    /* Blue hearts on gray sides */
+    .heart {
+      position:absolute; font-size:22px; color:#1e90ff;
+    }
+    .heart.left1 { left:10px; top:60px; }
+    .heart.left2 { left:10px; top:150px; }
+    .heart.left3 { left:10px; bottom:150px; }
+    .heart.left4 { left:10px; bottom:60px; }
+    .heart.right1 { right:10px; top:60px; }
+    .heart.right2 { right:10px; top:150px; }
+    .heart.right3 { right:10px; bottom:150px; }
+    .heart.right4 { right:10px; bottom:60px; }
+
+    /* Inside of card */
+    .back {
+      background:#f9f9f9;
+      transform: rotateY(180deg);
+      display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+      padding:30px;
+    }
+    .back p {
+      font-size:18px; font-family:Arial; color:green;
+      max-width:90%; line-height:1.4;
+      margin-top:10px;
+    }
+    .back img {
+      width:120px; margin:20px 0;
+      border-radius:8px; border:2px solid gold;
+      box-shadow:0 0 8px rgba(0,0,0,0.3);
+    }
+    .back h1 {
+      font-size:24px; font-family:Arial; color:gold;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.7);
+      margin-bottom:10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" onclick="this.classList.toggle('open')">
+    <!-- Front cover -->
+    <div class="side front">
+      <img src="omar.jpg" alt="Father's Day Photo">
+      <h2>Happy Father’s Day 2026</h2>
+      <!-- Blue hearts -->
+      <div class="heart left1">💙</div>
+      <div class="heart left2">💙</div>
+      <div class="heart left3">💙</div>
+      <div class="heart left4">💙</div>
+      <div class="heart right1">💙</div>
+      <div class="heart right2">💙</div>
+      <div class="heart right3">💙</div>
+      <div class="heart right4">💙</div>
+    </div>
+    <!-- Inside of card -->
+    <div class="side back">
+      <p>"The power of a dad in a child's life is unmatched. Family isn't always blood. It's the people in your life who want you in theirs."</p>
+      <img src="omarni.jpg" alt="Family Photo">
+      <h1>💙 Happy Father’s Day 💙</h1>
+    </div>
+  </div>
+</body>
+</html>
